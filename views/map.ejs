@@ -22,59 +22,54 @@
     <div id="map"></div>
     <script>
 
-var coordinants = [];
+    var coordinants = [];
 
     (()=>{
-      return fetch('http://localhost:3000/spots')
-      .then((res)=>res.json())
-      .then((resjson)=>{
-        // console.log(resjson);
-        // for(i=0; i<resjson; i++) {
-        //   var spot = resjson[i]
-          for(var prop in resjson[0]) {
-            var lat = resjson[0].lat;
-            var lng = resjson[0].lon;
-          }
-          const coord = {lat, lng}
-          coordinants.push(coord);
-          console.log(coord)
-          console.log(coordinants)
-        //}
-      })
+
     })();
 
-    function initMap(lat, lng) {
-      var myLatLng = {lat: -25.363, lng: 131.044};
+    // console.log(coordinants)
 
-      // router.get('/', (req, res, next) => {
-      //   const lat = req.params.lat;
-      //   const lon = req.params.lon;
-      //   console.log(lat)
-      //   console.log(lon)
-      //   knex('spots')
-      //   .then((myLatLng)=> {
-      //     let myLatLng = {
-      //       lat: spots[0].lat,
-      //       lng: spots[0].lon
-      //     }
-      //     res.json(myLatLng)
-      //   })
-      //   .catch((err)=> {
-      //     next(err)
-      //   })
-      // });
+    function initMap(latlng) {
+      var myLatLng = {lat: 21, lng: -141};
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: myLatLng
-      });
+      })
 
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
+    fetch('http://localhost:3000/spots')
+    .then((res)=>res.json())
+    .then((resjson)=>{
+        for(var prop in resjson[0]) {
+          var lat = resjson[0].lat;
+          var lng = resjson[0].lon;
+        }
+        const coord = {lat: lat, lng: lng}
+        coordinants.push(coord);
+        console.log(coordinants)
+        for(i=0; i<coordinants.length; i++) {
+          console.log(typeof coordinants[i].lat)
+          var parseLat = parseInt(coordinants[i].lat)
+          console.log(parseLat)
+          var parseLng = parseInt(coordinants[i].lng)
+          console.log(parseLng)
+          new google.maps.Marker({
+          position: {lat: parseLat, lng: parseLng},
+          map: map,
+          title: 'Hello World!'
+      })
     }
+  })
+}
+//   var makeMarker = (latlng) => {
+//     var marker = new google.maps.Marker({
+//     position: latlng,
+//     map: map,
+//     title: 'Hello World!'
+//   })
+// }
+
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqfcq9t7kpG5XPKI5kHTdifsxwLMqUIDQ&callback=initMap"></script>
   </body>
