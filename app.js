@@ -6,10 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
+var spots = require('./routes/spots')
 var users = require('./routes/users');
-
-
-
+var map = require('./routes/map');
+var cors = require('cors')
 var app = express();
 
 // view engine setup
@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,6 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/map', map)
+app.use('/spots', spots)
 
 
 // catch 404 and forward to error handler

@@ -1,19 +1,15 @@
-// Update with your config settings.
-
 module.exports = {
+
+  // test: {
+  //   client: 'pg',
+  //   connection: 'postgres://localhost/students_test'
+  // },
 
   development: {
     client: 'pg',
-    connection: {
-      filename: 'postgres://localhost/skate_spot'
-    }
+    connection: 'postgres://localhost/skatespot_dev'
   },
-  test: {
-    client: 'pg',
-    connection: {
-        filename: 'postgres://localhost/skate_spot_test'
-    }
-  },
+
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL
