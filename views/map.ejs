@@ -50,9 +50,9 @@
         console.log(coordinants)
         for(i=0; i<coordinants.length; i++) {
           console.log(typeof coordinants[i].lat)
-          var parseLat = parseInt(coordinants[i].lat)
+          var parseLat = parseFloat(coordinants[i].lat)
           console.log(parseLat)
-          var parseLng = parseInt(coordinants[i].lng)
+          var parseLng = parseFloat(coordinants[i].lng)
           console.log(parseLng)
           new google.maps.Marker({
           position: {lat: parseLat, lng: parseLng},
