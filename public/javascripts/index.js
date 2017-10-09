@@ -7,26 +7,7 @@ $(document).ready(function() {
           validating: 'glyphicon glyphicon-refresh'
       },
       fields: {
-          first_name: {
-              validators: {
-                      stringLength: {
-                      min: 2,
-                  },
-                      notEmpty: {
-                      message: 'Please enter your First Name'
-                  }
-              }
-          },
-           last_name: {
-              validators: {
-                   stringLength: {
-                      min: 2,
-                  },
-                  notEmpty: {
-                      message: 'Please enter your Last Name'
-                  }
-              }
-          },
+
      user_name: {
               validators: {
                    stringLength: {
@@ -55,7 +36,7 @@ $(document).ready(function() {
                   notEmpty: {
                       message: 'Please confirm your Password'
                   }
-              }
+              }s
           },
           email: {
               validators: {
@@ -64,23 +45,6 @@ $(document).ready(function() {
                   },
                   emailAddress: {
                       message: 'Please enter a valid Email Address'
-                  }
-              }
-          },
-          contact_no: {
-              validators: {
-                stringLength: {
-                      min: 12,
-                      max: 12,
-                  notEmpty: {
-                      message: 'Please enter your Contact No.'
-                   }
-              }
-          },
-     department: {
-              validators: {
-                  notEmpty: {
-                      message: 'Please select your Department/Office'
                   }
               }
           },
