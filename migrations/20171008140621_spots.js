@@ -2,8 +2,8 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('spots', (table)=>{
     table.increments('id').primary()
-    table.decimal('lat').notNullable().defaultTo()
-    table.decimal('lon').notNullable().defaultTo()
+    table.decimal('lat', 12, 8).notNullable().defaultTo()
+    table.decimal('lon', 12, 8).notNullable().defaultTo()
     table.string('name').notNullable().defaultTo('')
     table.string('location').notNullable().defaultTo('')
     table.string('bust').notNullable().defaultTo('')
