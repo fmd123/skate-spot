@@ -25,26 +25,27 @@
     var coordinants = [];
 
     function initMap(latlng) {
-      var myLatLng = {lat: 21, lng: -141};
+      // var myLatLng = {lat: 21, lng: -141};
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
-        center: {lat: 39.5501, lng: -105.7821}
+        zoom: 15,
+        center: {lat: 40.015861, lng: -105.279284}
       })
 
     fetch('http://localhost:3000/spots')
     .then((res)=>res.json())
     .then((resjson)=>{
-
-        for(var prop in resjson[0]) {
-          var name = resjson[0].name
-          var lat = resjson[0].lat;
-          var lng = resjson[0].lon;
-
+      console.log(resjson)
+      for(j=0; j<resjson.length; j++){
+        for(var prop in resjson[j]) {
+          var name = resjson[j].name;
+          var lat = resjson[j].lat;
+          var lng = resjson[j].lon;
         }
 
-        const coord = {lat: lat, lng: lng}
-        coordinants.push(coord);
+      const coord = {lat: lat, lng: lng}
+      coordinants.push(coord);
+      }
 
         var filterFloat = function(value) {
           if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
