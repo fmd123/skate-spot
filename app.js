@@ -10,7 +10,6 @@ var spots = require('./routes/spots')
 var users = require('./routes/users');
 var map = require('./routes/map');
 var cors = require('cors');
-
 var app = express();
 
 // view engine setup

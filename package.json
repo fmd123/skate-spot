@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "knex": "knex",
+    "knex" : "knex",
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
