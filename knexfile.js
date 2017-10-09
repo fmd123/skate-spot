@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      filename: 'postgres://localhost/skate_spot_dev'
+      filename: 'postgres://localhost/skate_spot'
     }
   },
   test: {
