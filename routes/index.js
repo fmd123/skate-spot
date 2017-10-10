@@ -13,6 +13,12 @@ router.get('/map', function(req, res, next) {
   res.render('map', { title: 'SKATE SPOT', _layoutFile: 'layoutA.ejs'  });
 });
 
+// router.get('/register', function(req, res, next) {
+//
+//   res.render('register', { title: 'CREATE NEW USER', _layoutFile: 'layoutA.ejs'  });
+// });
+
+
 
 
 module.exports = router;
