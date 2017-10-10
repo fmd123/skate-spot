@@ -4,27 +4,19 @@ const express = require('express');
 const knex = require('../knex');
 const router = express.Router();
 
-router.get('/', (req, res, next) => {
+router.get('/spots', (req, res, next) => {
   console.log("here");
   knex('spots')
   .orderBy('id')
   .then((spots)=> {
     res.send(spots)
-
-    // iterate through spots (records), accumulate an array
-    // of simple {lat, long} objects
-    // var myArray
-    // res.render('map', {
-    //   title: 'Skate-Spotter',
-    //   myArray: myArrayOfObjects
-    // });
   })
   .catch((err)=> {
     next(err)
   })
 });
 
-router.get('/:id', (req, res, next) =>{
+router.get('/spots/:id', (req, res, next) =>{
   const id = req.params.id;
   knex('spots')
   .where('id', id)
@@ -34,10 +26,15 @@ router.get('/:id', (req, res, next) =>{
   .catch((err) => next(err))
 });
 
-router.post('/', (req, res, next) => {
-  const { name, location, bust, difficulty, photo_url, description } = req.body
+router.post('/spots', (req, res, next) => {
+
+  const { lat, lon, name, location, bust, difficulty, photo_url, description } = req.body
+  console.log(req.body)
   knex('spots')
+  // console.log('here2');
   .insert({
+    lat,
+    lon,
     name,
     location,
     bust,
@@ -49,7 +46,9 @@ router.post('/', (req, res, next) => {
   .then((spots)=>{
     let spot = {
       id: spots[0].id,
-      name: spots[0].title,
+      lat: spots[0].lat,
+      lon: spots[0].lon,
+      name: spots[0].name,
       location: spots[0].location,
       bust: spots[0].bust,
       difficulty: spots[0].difficulty,
@@ -60,12 +59,23 @@ router.post('/', (req, res, next) => {
   })
   .catch((err)=>next(err))
 });
-router.patch('/', (req, res, next) => {
+
+router.patch('/spots/:id', (req, res, next) => {
+
   const id = req.params.id
-  const { name, location, bust, difficulty, photo_url, description } = req.body
+  const { lat, lon, name, location, bust, difficulty, photo_url, description } = req.body
 
   let newSpot = {}
 
+  if(id){
+    newSpot.id=id
+  }
+  if(lat){
+    newSpot.lat=lat
+  }
+  if(lon){
+    newSpot.lon=lon
+  }
   if(name) {
     newSpot.name = name
   }
@@ -85,6 +95,7 @@ router.patch('/', (req, res, next) => {
     newSpot.description = description
   }
 
+
   knex('spots')
   .where('id', id)
 
@@ -97,19 +108,48 @@ router.patch('/', (req, res, next) => {
     .then((spots)=>{
       let spot = {
         id: spots[0].id,
-        name: spots[0].title,
+        lat: spots[0].lat,
+        lon: spots[0].lon,
+        name: spots[0].name,
         location: spots[0].location,
         bust: spots[0].bust,
         difficulty: spots[0].difficulty,
         photo_url: spots[0].photo_url,
         description: spots[0].description
       }
-      res.json(spot)
+      res.send(spot)
     })
     .catch((err) => next(err))
   })
 })
 
-//fix migrations so that they include id- figure out how to use id to get patch responding
+router.delete('/spots/:id', (req, res, next)=>{
+  const id = req.params.id
+
+  knex('spots')
+    .then((spots)=>{
+      knex('spots')
+      .del()
+      .where('id', id)
+      .returning('*')
+
+      .then((spots)=>{
+        let spot = {
+          id: spots[0].id,
+          lat :spots[0].lat,
+          lon: spots[0].lon,
+          name: spots[0].name,
+          location: spots[0].location,
+          bust: spots[0].bust,
+          difficulty: spots[0].difficulty,
+          photo_url: spots[0].photo_url,
+          description: spots[0].description
+        }
+        res.json(spot)
+        console.log('Sure hope you wanted to delete that Spot!')
+      })
+      .catch((err)=>next(err))
+    })
+});
 
 module.exports = router;

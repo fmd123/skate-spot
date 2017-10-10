@@ -4,19 +4,28 @@ var router = express.Router();
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Skate-Spotter' });
+});
 
-  res.render('index', { title: 'SKATE SPOT', _layoutFile: 'layoutA.ejs'  });
+router.get('/', function(req, res, next) {
+  res.render('map', { title: 'Skate-Spotter' });
+});
+
+router.get('/register', function(req, res, next) {
+  res.render('register', { title: 'Register' });
+});
+
+router.get('/about', function(req, res, next) {
+  res.render('about', { title: 'About' });
 });
 
 router.get('/map', function(req, res, next) {
-
   res.render('map', { title: 'SKATE SPOT', _layoutFile: 'layoutA.ejs'  });
 });
 
-// router.get('/register', function(req, res, next) {
-//
-//   res.render('register', { title: 'CREATE NEW USER', _layoutFile: 'layoutA.ejs'  });
-// });
+
+
+
 
 
 

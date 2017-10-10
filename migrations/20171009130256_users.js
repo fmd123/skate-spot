@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('users', function(table){
     table.increments();
     table.string('user_name').notNullable().unique();
-    table.string('password').notNullable();
+    table.specificType('hashed_password', 'char(60)').notNullable();
     table.string('email').notNullable().unique();
     table.specificType('bio', 'varchar(150)');
     table.boolean('admin');
