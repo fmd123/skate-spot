@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 50%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+    var coordinants = [];
+
+    function initMap(latlng) {
+      // var myLatLng = {lat: 21, lng: -141};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: {lat: 40.015861, lng: -105.279284}
+      })
+
+    fetch('http://localhost:3000/spots')
+    .then((res)=>res.json())
+    .then((resjson)=>{
+      console.log(resjson)
+      for(j=0; j<resjson.length; j++){
+        for(var prop in resjson[j]) {
+          var name = resjson[j].name;
+          var lat = resjson[j].lat;
+          var lng = resjson[j].lon;
+        }
+
+      const coord = {lat: lat, lng: lng}
+      coordinants.push(coord);
+      }
+
+        var filterFloat = function(value) {
+          if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
+          .test(value))
+          return Number(value);
+          return NaN;
+        };
+
+        for(i=0; i<coordinants.length; i++) {
+          var parseLat = filterFloat(coordinants[i].lat)
+          console.log(parseLat)
+          var parseLng = filterFloat(coordinants[i].lng)
+          new google.maps.Marker({
+          position: {lat: parseLat, lng: parseLng},
+          map: map,
+          title: name
+      })
+    }
+  })
+}
+
+//   var makeMarker = (latlng) => {
+//     var marker = new google.maps.Marker({
+//     position: latlng,
+//     map: map,
+//     title: 'Hello World!'
+//   })
+// }
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqfcq9t7kpG5XPKI5kHTdifsxwLMqUIDQ&callback=initMap"></script>
+<!-- add forms here -->
+  </body>
+</html>
