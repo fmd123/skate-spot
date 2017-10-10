@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "knex" : "knex",
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "knex": "knex",
+    "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

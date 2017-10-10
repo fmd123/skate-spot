@@ -10,4 +10,6 @@ router.get('/', function(req, res, next) {
   res.render('map', { title: 'Skate-Spotter' });
 });
 
+
+
 module.exports = router;
