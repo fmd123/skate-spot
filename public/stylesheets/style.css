@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: "/images/michal-grosicki-235026.jpg"
+  background-image: url("/images/michal-grosicki-235026.jpg")
 }
 
 a {
