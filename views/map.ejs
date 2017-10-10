@@ -8,7 +8,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 50%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -28,7 +28,7 @@
       // var myLatLng = {lat: 21, lng: -141};
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
+        zoom: 14,
         center: {lat: 40.015861, lng: -105.279284}
       })
 
@@ -66,6 +66,7 @@
     }
   })
 }
+
 //   var makeMarker = (latlng) => {
 //     var marker = new google.maps.Marker({
 //     position: latlng,
@@ -76,5 +77,6 @@
 
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqfcq9t7kpG5XPKI5kHTdifsxwLMqUIDQ&callback=initMap"></script>
+<!-- add forms here -->
   </body>
 </html>
