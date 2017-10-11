@@ -1,6 +1,6 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 50px;
+  font-family: 'Fjalla One', sans-serif;
   background-image: url("/images/michal-grosicki-235026.jpg")
 }
 
@@ -8,16 +8,23 @@ a {
   color: #00B7FF;
 }
 h1 {
-  color: red;
+  font-size:65px;
+  font-weight:800;
+  font-style: italic;
+  color:greenyellow;
+  text-shadow: 2px 2px 5px purple;
+  text-align: center;
+  padding:20px;
 }
-h2{
-  cornflowerblue;
-}
+
 .container{
   50%;
 }
 
-#success_message{ display: none;}
+.space{
+  padding-top 80px;
+}
+
 
   /* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
@@ -33,4 +40,14 @@ h2{
 
   #bio{
     width: 50%;
+    margin:auto;
   }
+
+  .form-horizontal {
+    width: 75% ;
+  margin-left: auto ;
+  margin-right: auto ;
+  }
+  .navbar-inverse .navbar-brand {
+    color: greenyellow;
+}
