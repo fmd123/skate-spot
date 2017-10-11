@@ -44,7 +44,61 @@
       </div>
     </nav>
     <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::  -->
+<div class = "container">
+  <div class = "container">
+    <h2>Create New Skate Spot</h2>
+    <form class="well form-horizontal" action="createSkateSpot" method="post" id = "SpotForm">
+    <fieldset>
+      <form>
+  <div class="form-group">
+    <label for="lat">Latitude:</label>
+    <input type="number" class="form-control" id="lat">
+  </div>
 
+  <div class="form-group">
+    <label for="long">Longitude:</label>
+    <input type="number" class="form-control" id="long">
+  </div>
+  <div class="form-group">
+    <label for="spotName">Spot Name:</label>
+    <input type="text" class="form-control" id="spotName">
+  </div>
+  <div class="form-group">
+    <label for="closeAddress">Closest Address:</label>
+    <input type="text" class="form-control" id="closeAdress">
+  </div>
+
+  <div class="radio">
+    <h3>Bust Level</h3>
+    <label><input type="radio" name="bustRadio">High</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="bustRadio">Medium</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="bustRadio">Low</label>
+  </div>
+
+  <div class="radio">
+    <h3>Difficulty Level</h3>
+    <label><input type="radio" name="diffRadio">High</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="diffRadio">Medium</label>
+  </div>
+  <div class="radio">
+    <label><input type="radio" name="diffRadio">Low</label>
+  </div>
+<br>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+    </fieldset>
+
+
+    </form>
+
+  </div>
+</div>//end of outermostcontainer
 
 
 
