@@ -1,15 +1,37 @@
-// 'use strict';
-//
-// const bcrypt = require('bcrypt-as-promised');
-// const boom = require('boom');
-// const express = require('express');
-// const jwt = require('jsonwebtoken');
-// const knex = require('../knex');
-// const { camelizeKeys, decamelizeKeys } = require('humps');
-//
-// // eslint-disable-next-line new-cap
-// const router = express.Router();
-//
+'use strict';
+
+const bcrypt = require('bcrypt-as-promised');
+const boom = require('boom');
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const knex = require('../knex');
+const { camelizeKeys, decamelizeKeys } = require('humps');
+
+// eslint-disable-next-line new-cap
+const router = express.Router();
+
+
+//insert new user when entering data on register.ejs
+
+router.post('/users', (req, res, next)=>{
+  const{}
+
+})
+
+//update users
+
+//read one user
+
+//list all users
+
+
+//delete users
+
+
+
+module.exports = router;
+
+
 // router.post('/users', (req, res, next) => {
 //   const { email, password } = req.body;
 //
@@ -61,5 +83,3 @@
 //       next(err);
 //     });
 // });
-//
-// module.exports = router;

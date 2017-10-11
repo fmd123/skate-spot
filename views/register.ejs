@@ -43,7 +43,7 @@
       <!--/.nav-collapse -->
     </div>
   </nav>
-<!-- Photo by Michał Grosicki on Unsplash -->
+  <!-- Photo by Michał Grosicki on Unsplash -->
   <div class="container">
     <div class="container">
       <h2>Register New User</h2>
@@ -51,6 +51,24 @@
         <fieldset>
           <div class="form-group">
             <label class="col-md-4 control-label">Username</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="user_name" placeholder="Username" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label">First Name</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input name="user_name" placeholder="Username" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Last Name</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -91,6 +109,29 @@
               </div>
             </div>
           </div>
+
+
+          <!--  -->
+          <div class="form-group">
+            <label for="comment">Brief Bio:</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+          </div>
+          <!--  -->
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Inviter code</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+
+
+
+
+
           <!-- Success message -->
           <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
 
@@ -114,10 +155,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/javascripts/index.js" charset="utf-8"></script>
+  <!-- <script src="/javascripts/index.js" charset="utf-8"></script> -->
 </body>
 
 </html>
-
-
-<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::: -->

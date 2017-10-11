@@ -1,6 +1,6 @@
 'use strict';
 
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcrypt');
 const boom = require('boom');
 const express = require('express');
 const jwt = require('jsonwebtoken');
@@ -10,8 +10,9 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
-router.post('/register', (req, res, next) => {
-  const { email, password } = req.body;
+router.post('/users', (req, res, next) => {
+  console.log('yo')
+  const { user_name, hashed_password, email, bio, admin, my_invite_code, inviter_code} = req.body;
 
   if (!email || !email.trim()) {
     return next(boom.create(400, 'Email must not be blank'));
@@ -32,7 +33,7 @@ router.post('/register', (req, res, next) => {
         throw boom.create(400, 'Email already exists');
       }
 
-      return bcrypt.hash(password, 12);
+      return bcrypt.hash(password, 12);  ///?
     })
     .then((hashed_password) => {
       const { user_name } = req.body;

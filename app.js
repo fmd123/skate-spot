@@ -29,10 +29,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-// app.use('/users', users);
+app.use('/', users);
 app.use('/map', map)
 app.use('/spots', spots)
-app.use('/register', register)
+app.use('/', register)
 app.use('/about', about)
 
 // catch 404 and forward to error handler
