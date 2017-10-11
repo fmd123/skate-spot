@@ -11,6 +11,7 @@ var spots = require('./routes/spots')
 var users = require('./routes/users');
 var map = require('./routes/map');
 var register = require('./routes/register')
+var spotform = require('./routes/spotform')
 var about = require('./routes/about')
 var cors = require('cors')
 var app = express();
@@ -30,8 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', users);
-app.use('/', map)
-app.use('/', spots)
+app.use('/', map);
+app.use('/', spots);
+app.use('/', register);
+app.use('/', spotform);
 
 
 // catch 404 and forward to error handler

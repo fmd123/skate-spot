@@ -23,6 +23,10 @@ router.get('/map', function(req, res, next) {
   res.render('map', { title: 'SKATE SPOT', _layoutFile: 'layoutA.ejs'  });
 });
 
+router.get('/spotform', function(req, res, next) {
+  res.render('spotform', { title: 'CREATE NEW SPOT', _layoutFile: 'layoutA.ejs'  });
+});
+
 
 
 

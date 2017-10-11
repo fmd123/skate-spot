@@ -6,6 +6,8 @@ router.get('/map', function(req, res, next) {
   res.render('map', { title: 'Skate-Spotter' });
 });
 
+
+
 // router.get('/map', function(req, res, next) {
 //   res.json(lat, lng)
 // })
