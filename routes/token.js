@@ -30,17 +30,17 @@ router.post('/token', function(req, res, next){
       if(!data) {
         res.status(400)
         res.setHeader('Content-Type', 'text/plain')
-        res.send('Bad email or password')
+        res.send('You playin?')
       }else if(bcrypt.compareSync(req.body.password, data.hashed_password)){
         console.log(process.env.JWT_KEY)
         let token = jwt.sign({id: data.id}, process.env.JWT_KEY)
         console.log(token)
         res.cookie('token', token, {httpOnly:true})
-        res.send({id: data.id, email: data.email, firstName: data.first_name, lastName: data.last_name})
+        res.send({'homie is logged in as' + id: data.id, email: data.email, firstName: data.first_name, lastName: data.last_name})
       }else{
         res.status(400)
         res.setHeader('Content-type', 'text/plain')
-        res.send('Bad email or password')
+        res.send('Sorry bud, no can do')
       }
     })
     .catch(next)
