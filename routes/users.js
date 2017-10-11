@@ -8,6 +8,27 @@ var salt = bcrypt.genSaltSync(10);
 //   res.send('respond with a resource');
 // });
 
+router.get('/users', (req, res, next)=>{
+  knex('users')
+  .orderBy('id')
+  .then((users)=>{
+    res.json(users)
+  })
+  .catch((err)=> {
+    next(err)
+  })
+});
+
+router.get('/users/:id', (req, res, next)=>{
+  const id = req.params.id;
+  knex('users')
+  .where('id', id)
+  .then((users)=>{
+    res.json(users)
+  })
+  .catch((err)=>next(err))
+});
+
 router.post('/users', (req, res, next) => {
   const { user_name, first_name, last_name, email, password, bio, admin, invite_code, inviter_id } = req.body
   knex('users')
