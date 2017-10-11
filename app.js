@@ -30,10 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', users);
-app.use('/map', map)
-app.use('/spots', spots)
-app.use('/', register)
-app.use('/about', about)
+app.use('/', map)
+app.use('/', spots)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

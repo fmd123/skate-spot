@@ -1,14 +1,12 @@
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
   return knex('users').del()
     .then(function () {
-      // Inserts seed entries
       return knex('users').insert([
-        {id: 1, user_name: 'sled_god', hashed_password: 'password', email: 'asdfadf@gmail.com', bio: 'blah blah blah', admin: 'true', my_invite_code: 'skate', inviter_code: 'none'},
-
-
-      ]);
-      .then(()=>)
+        {id: 1, user_name: 'sled_god', first_name: 'JJ', last_name: 'Jensen', email: 'jjisverycool@gmail.com', hashed_password: 'jjiscool', bio: 'JJ is extra cool', admin: true, invite_code: 1, inviter_id: 1 }
+      ])
+      .then(()=>{
+        return knex.raw("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users))")
+      })
     });
 };

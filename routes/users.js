@@ -1,85 +1,151 @@
-'use strict';
+var express = require('express');
+var router = express.Router();
+var knex = require('../knex');
+var bcrypt = require('bcrypt');
+var salt = bcrypt.genSaltSync(10);
+/* GET users listing. */
+// router.get('/', function(req, res, next) {
+//   res.send('respond with a resource');
+// });
 
-const bcrypt = require('bcrypt-as-promised');
-const boom = require('boom');
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const knex = require('../knex');
-const { camelizeKeys, decamelizeKeys } = require('humps');
+router.get('/users', (req, res, next)=>{
+  knex('users')
+  .orderBy('id')
+  .then((users)=>{
+    res.json(users)
+  })
+  .catch((err)=> {
+    next(err)
+  })
+});
 
-// eslint-disable-next-line new-cap
-const router = express.Router();
+router.get('/users/:id', (req, res, next)=>{
+  const id = req.params.id;
+  knex('users')
+  .where('id', id)
+  .then((users)=>{
+    res.json(users)
+  })
+  .catch((err)=>next(err))
+});
 
+router.post('/users', (req, res, next) => {
+  const { user_name, first_name, last_name, email, password, bio, admin, invite_code, inviter_id } = req.body
+  knex('users')
+  .insert({
+    user_name: user_name,
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    hashed_password: bcrypt.hashSync(password, salt),
+    bio: bio,
+    admin: admin,
+    invite_code: invite_code,
+    inviter_id: inviter_id
+  })
+  .returning('*')
+  .then((users)=>{
+    let user = {
+      user_name: users[0].user_name,
+      first_name: users[0].first_name,
+      last_name: users[0].last_name,
+      email: users[0].email,
+      bio: users[0].bio
+    }
+    res.json(user)
+  })
+  .catch((err)=>{
+    next(err)
+  })
+});
 
-//insert new user when entering data on register.ejs
+router.patch('/users/:id', (req, res, next)=>{
+  const id = req.params.id
+  const {user_name, first_name, last_name, email, password, bio, admin, invite_code, inviter_id } = req.body
 
-router.post('/users', (req, res, next)=>{
-  const{}
+  let editUser = {}
 
+  if(user_name){
+    editUser.user_name = user_name
+  }
+  if(first_name){
+    editUser.first_name = first_name
+  }
+  if(last_name){
+    editUser.last_name = last_name
+  }
+  if(email){
+    editUser.email = email
+  }
+  if(password){
+    editUser.password = password
+  }
+  if(bio){
+    editUser.bio = bio
+  }
+  if(admin){
+    editUser.admin = admin
+  }
+  if(invite_code){
+    editUser.invite_code = invite_code
+  }
+  if(inviter_id){
+    editUser.inviter_id = inviter_id
+  }
+
+  knex('users')
+  .where('id', id)
+
+  .then((user)=>{
+    knex('users')
+    .update(editUser)
+    .where('id', id)
+    .returning('*')
+
+    .then((users)=>{
+      let user = {
+        id: users[0].id,
+        user_name: users[0].user_name,
+        first_name: users[0].first_name,
+        last_name: users[0].last_name,
+        email: users[0].email,
+        bio: users[0].bio,
+        admin: users[0].admin,
+        invite_code: users[0].invite_code,
+        inviter_id: users[0].inviter_id
+      }
+      res.json(user)
+    })
+    .catch((err)=>next(err))
+  })
 })
 
-//update users
+router.delete('/users/:id', (req, res, next)=>{
+  const id = req.params.id
+  knex('users')
 
-//read one user
+  .then((users)=>{
+    knex('users')
+    .del()
+    .where('id', id)
+    .returning('*')
 
-//list all users
-
-
-//delete users
-
-
+    .then((users)=> {
+      let user = {
+        id: users[0].id,
+        user_name: users[0].user_name,
+        first_name: users[0].first_name,
+        last_name: users[0].last_name,
+        email: users[0].email,
+        bio: users[0].bio,
+        admin: users[0].admin,
+        invite_code: users[0].invite_code,
+        inviter_id: users[0].inviter_id
+      }
+      res.json(user)
+    })
+    .catch((err)=>next(err))
+  })
+});
 
 module.exports = router;
-
-
-// router.post('/users', (req, res, next) => {
-//   const { email, password } = req.body;
-//
-//   if (!email || !email.trim()) {
-//     return next(boom.create(400, 'Email must not be blank'));
-//   }
-//
-//   if (!password || password.length < 8) {
-//     return next(boom.create(
-//       400,
-//       'Password must be at least 8 characters long'
-//     ));
-//   }
-//
-//   knex('users')
-//     .where('email', email)
-//     .first()
-//     .then((user) => {
-//       if (user) {
-//         throw boom.create(400, 'Email already exists');
-//       }
-//
-//       return bcrypt.hash(password, 12);
-//     })
-//     .then((hashedPassword) => {
-//       const { firstName, lastName } = req.body;
-//       const insertUser = { user_name, email, bio, admin, my_invite_code, inviter_code, hashedPassword };
-//
-//       return knex('users').insert(decamelizeKeys(insertUser), '*');
-//     })
-//     .then((rows) => {
-//       const user = camelizeKeys(rows[0]);
-//       const claim = { userId: user.id };
-//       const token = jwt.sign(claim, process.env.JWT_KEY, {
-//         expiresIn: '7 days'
-//       });
-//
-//       res.cookie('token', token, {
-//         httpOnly: true,
-//         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),  // 7 days
-//         secure: router.get('env') === 'production'
-//       });
-//
-//       delete user.hashedPassword;
-//
-//       res.send(user);
-//     })
-//     .catch((err) => {
-//       next(err);
-//     });
-// });

@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "knex": "knex",
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
     "bcrypt-as-promised": "^1.1.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.17.1",
     "boom": "^6.0.0",
     "cookie-parser": "~1.4.3",
