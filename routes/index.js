@@ -6,9 +6,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Skate-Spotter' });
 });
 
-router.get('/', function(req, res, next) {
+router.get('/map', function(req, res, next) {
   res.render('map', { title: 'Skate-Spotter' });
 });
+
+// router.get('/token', function(req, res, next) {
+//   res.render('token', { title: 'Skate-Spotter' });
+// })
 
 
 

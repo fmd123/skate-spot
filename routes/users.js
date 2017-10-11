@@ -3,10 +3,6 @@ var router = express.Router();
 var knex = require('../knex');
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
 
 router.get('/users', (req, res, next)=>{
   knex('users')
