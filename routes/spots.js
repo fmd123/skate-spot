@@ -117,7 +117,7 @@ router.patch('/spots/:id', (req, res, next) => {
         photo_url: spots[0].photo_url,
         description: spots[0].description
       }
-      res.send(spot)
+      res.json(spot)
     })
     .catch((err) => next(err))
   })

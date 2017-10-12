@@ -1,27 +1,216 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 50%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    <script>
 
+<head>
+
+
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/stylesheets/style.css" rel="stylesheet">
+
+
+  <title>map.ejs</title>
+
+  <title>Simple Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" href="/about">SKATE SPOT</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a id='logout'>Log Out</a></li>
+          <li><a href="#top">Back to Map</a></li>
+          <li><a href="#createSkate">Create Skate Spot</a></li>
+          <!-- <li><a href="#">Find Users</a></li> -->
+            </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+  <a name="top"></a>
+  <!--:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::  -->
+
+  <div id="map"></div>
+  <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <div class="container">
+    <div class="container" id = "createSkate">
+
+      <form  class="well form-horizontal" action="createSkateSpot" method="post" id="SpotForm">
+        <h2 >Create New Skate Spot</h2>
+        <fieldset>
+          <form>
+
+            <div class="form-group">
+              <label for="closeAddress">Closest Address:</label>
+              <input type="text" class="form-control" id="closeAdress">
+            </div>
+
+            <div class="form-group">
+    <div class="container" id="createSkate">
+
+      <form class="well form-horizontal" method="post" id="spotForm">
+        <h2>Create New Skate Spot</h2>
+
+        <div id="floating-panel">
+          <input id="address" type="textbox" value="address">
+        <!-- </div>
+        <div class="floating-panel"> -->
+          <input id="name" type="textbox" value="name">
+        <!-- </div>
+        <div class="floating-panel"> -->
+          <!-- <input id="address2" type="textbox" value="street address"> -->
+        <!-- </div>
+        <div class="floating-panel"> -->
+          <input id="bust" type="textbox" value="bust level">
+        <!-- </div>
+        <div class="floating-panel"> -->
+          <input id="difficulty" type="textbox" value="difficulty">
+        <!-- </div>
+        <div class="floating-panel"> -->
+          <input id="photo_url" type="textbox" value="photo_url">
+        <!-- </div>
+        <div class="floating-panel"> -->
+          <input id="description" type="textbox" value="description">
+        <!-- </div>
+        <div> -->
+          <input id="submit" type="button" value="submit">
+        </div>
+        <!-- <fieldset> -->
+        <!-- <form> -->
+
+        <!-- <div>
+              <label for="closeAddress">Closest Address:</label>
+              <input type="text" id="address">
+            </div>
+
+            <div>
+>>>>>>> 0bec4b3caf4d36f6d45613c4db80378ac21c9fed
+              <label for="spotName">Spot Name:</label>
+              <input type="text" class="form-control" id="spotName">
+            </div>
+
+            <div class="radio">
+              <h3>Bust Level</h3>
+              <label><input type="radio" name="bustRadio">High</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="bustRadio">Medium</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="bustRadio">Low</label>
+            </div>
+
+            <div class="radio">
+              <h3>Difficulty Level</h3>
+              <label><input type="radio" name="diffRadio">High</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="diffRadio">Medium</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="diffRadio">Low</label>
+            </div>
+
+
+<<<<<<< HEAD
+            <div class="form-group">
+              <label for="photo-url">Photo URL:</label>
+              <input type="url" class="form-control" id="photo-url">
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input type="text" class="form-control" id="description">
+</div>
+
+              <br>
+              <button type="submit" class="btn btn-default">Submit</button>
+
+
+          </form>
+        </fieldset>
+
+
+      </form>
+
+    </div>
+    <!end of create skate spot div  -->
+  </div>
+
+  <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
+
+  <!-- <div class="container">
+    <div class="container" id = "findUser">
+
+      <form  class="well form-horizontal" action="findUser" method="post" id="">
+        <h2 >Find A User</h2>
+        <fieldset>
+          <form>
+
+            <div class="form-group">
+              <label for="userName">User Name:</label>
+              <input type="text" class="form-control" id="userName">
+            </div> -->
+
+
+
+
+
+
+
+
+
+
+
+              <br>
+              <button type="submit" class="btn btn-default">Submit</button>
+
+
+          </form>
+        </fieldset>
+            <div>
+              <label for="photo-url">Photo URL:</label>
+              <input type="url" class="form-control" id="photo-url">
+            </div>
+
+            <div>
+              <label for="description">Description:</label>
+              <input type="text" class="form-control" id="description">
+            </div> -->
+
+        <!-- <button type="submit" class="btn btn-default" id="submit">Submit</button> -->
+
+
+        <!-- </form> -->
+        <!-- </fieldset> -->
+
+
+      </form>
+
+    </div>
+    <!--end of create skate spot div  -->
+  </div>
+
+  <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <script>
     var coordinants = [];
 
     function initMap(latlng) {
@@ -29,54 +218,67 @@
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
-        center: {lat: 40.015861, lng: -105.279284}
-      })
-
-    fetch('http://localhost:3000/spots')
-    .then((res)=>res.json())
-    .then((resjson)=>{
-      console.log(resjson)
-      for(j=0; j<resjson.length; j++){
-        for(var prop in resjson[j]) {
-          var name = resjson[j].name;
-          var lat = resjson[j].lat;
-          var lng = resjson[j].lon;
+        center: {
+          lat: 40.015861,
+          lng: -105.279284
         }
-
-      const coord = {lat: lat, lng: lng}
-      coordinants.push(coord);
-      }
-
-        var filterFloat = function(value) {
-          if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
-          .test(value))
-          return Number(value);
-          return NaN;
-        };
-
-        for(i=0; i<coordinants.length; i++) {
-          var parseLat = filterFloat(coordinants[i].lat)
-          console.log(parseLat)
-          var parseLng = filterFloat(coordinants[i].lng)
-          new google.maps.Marker({
-          position: {lat: parseLat, lng: parseLng},
-          map: map,
-          title: name
       })
+
+      fetch('http://localhost:3000/spots')
+        .then((res) => res.json())
+        .then((resjson) => {
+          console.log(resjson)
+          for (j = 0; j < resjson.length; j++) {
+            for (var prop in resjson[j]) {
+              var name = resjson[j].name;
+              var lat = resjson[j].lat;
+              var lng = resjson[j].lon;
+            }
+
+            const coord = {
+              lat: lat,
+              lng: lng
+            }
+            coordinants.push(coord);
+          }
+
+          var filterFloat = function(value) {
+            if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
+              .test(value))
+              return Number(value);
+            return NaN;
+          };
+
+          for (i = 0; i < coordinants.length; i++) {
+            var parseLat = filterFloat(coordinants[i].lat)
+            console.log(parseLat)
+            var parseLng = filterFloat(coordinants[i].lng)
+            new google.maps.Marker({
+              position: {
+                lat: parseLat,
+                lng: parseLng
+              },
+              map: map,
+              title: name
+            })
+          }
+        })
     }
-  })
-}
 
-//   var makeMarker = (latlng) => {
-//     var marker = new google.maps.Marker({
-//     position: latlng,
-//     map: map,
-//     title: 'Hello World!'
-//   })
-// }
+    //   var makeMarker = (latlng) => {
+    //     var marker = new google.maps.Marker({
+    //     position: latlng,
+    //     map: map,
+    //     title: 'Hello World!'
+    //   })
+    // }
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqfcq9t7kpG5XPKI5kHTdifsxwLMqUIDQ&callback=initMap"></script>
+  <script src="/javascripts/map.js" charset="utf-8"></script>
 
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqfcq9t7kpG5XPKI5kHTdifsxwLMqUIDQ&callback=initMap"></script>
-<!-- add forms here -->
-  </body>
+  <!-- add forms here -->
+</body>
+
 </html>
