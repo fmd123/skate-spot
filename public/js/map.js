@@ -10,13 +10,15 @@ function initMap(latlng) {
       lng: -105.279284
     }
   })
+
   //geocode init thing
   var geocoder = new google.maps.Geocoder();
 
   document.getElementById('submit').addEventListener('click', function() {
     geocodeAddress(geocoder, map);
   });
-
+  
+  // set pre-existing markers
   fetch('http://localhost:3000/spots')
     .then((res) => res.json())
     .then((resjson) => {
@@ -46,13 +48,19 @@ function initMap(latlng) {
         var parseLat = filterFloat(coordinants[i].lat)
         console.log(parseLat)
         var parseLng = filterFloat(coordinants[i].lng)
-        new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: {
             lat: parseLat,
             lng: parseLng
           },
           map: map,
-          title: name
+          title: name,
+
+        })
+        marker.addListener('click', function() {
+          map.setZoom(15);
+          map.setCenter(marker.getPosition());
+          console.log('lat ' + marker.lat + 'long ' + marker.lng)
         })
       }
     })
@@ -61,55 +69,57 @@ function initMap(latlng) {
   function geocodeAddress(geocoder, resultsMap) {
     var address = document.getElementById('address').value;
     geocoder.geocode({
-        'address': address
-      }, function newMark(results, status) {
-        if (status === 'OK') {
-          resultsMap.setCenter(results[0].geometry.location);
-          console.log(results[0].geometry.location.lat());
-          console.log(results[0].geometry.location.lng())
-          var marker = new google.maps.Marker({
-            map: resultsMap,
-            position: results[0].geometry.location
-          });
-
-          // SAVE TO DB
-          // NEED AN AJAX CALL
-          const jaxObj = {
-            method: "POST",
-            url: `/spots`,
-            data: {
-              lat: results[0].geometry.location.lat(),
-              lon: results[0].geometry.location.lng(),
-              // name: name,
-              // location: location,
-              // bust: bust,
-              // difficulty: difficulty,
-              // photo_url: photo_url,
-              // description: description,
-            }
-          }
-          $.ajax(jaxObj)
-            .done((spot) => {
-              //nothing needed per say, maybe refresh page?
-              console.log('you won that ajax bruv' + spot)
-            })
-              .fail(($xhr) => {
-                console.log('you failed that ajax bruv' + $xhr)
-                //ajax failed
-              })
-            }
-
-          else {
-            alert('Geocode was not successful for the following reason: ' + status);
-          }
+      'address': address
+    }, function newMark(results, status) {
+      if (status === 'OK') {
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
         });
-    }
-  }
+        var location = document.getElementById('address').value;
+        var name = document.getElementById('name').value;
+        var bust = document.getElementById('bust').value;
+        var difficulty = document.getElementById('difficulty').value;
+        var photo_url = document.getElementById('photo_url').value;
+        var description = document.getElementById('description').value;
 
-  //   var makeMarker = (latlng) => {
-  //     var marker = new google.maps.Marker({
-  //     position: latlng,
-  //     map: map,
-  //     title: 'Hello World!'
-  //   })
-  // }
+        // SAVE TO DB
+        // NEED AN AJAX CALL
+        const jaxObj = {
+          method: "POST",
+          url: `/spots`,
+          data: {
+            lat: results[0].geometry.location.lat(),
+            lon: results[0].geometry.location.lng(),
+            name: name,
+            location: location,
+            bust: bust,
+            difficulty: difficulty,
+            photo_url: photo_url,
+            description: description
+          }
+        }
+        $.ajax(jaxObj)
+          .done((spot) => {
+            //nothing needed per say, maybe refresh page?
+            console.log('you won that ajax bruv' + spot)
+          })
+          .fail(($xhr) => {
+            console.log('you failed that ajax bruv' + $xhr)
+            //ajax failed
+          })
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+}
+
+//   var makeMarker = (latlng) => {
+//     var marker = new google.maps.Marker({
+//     position: latlng,
+//     map: map,
+//     title: 'Hello World!'
+//   })
+// }
