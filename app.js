@@ -11,10 +11,7 @@ var token = require('./routes/token');
 var index = require('./routes/index');
 var spots = require('./routes/spots');
 var users = require('./routes/users');
-// var map = require('./routes/map');
 var cors = require('cors');
-
-
 var app = express();
 
 // view engine setup
@@ -33,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/', users);
-// app.use('/', map);
 app.use('/', spots);
 app.use('/', token);
 
