@@ -44,50 +44,6 @@ function initMap(latlng) {
             return Number(value);
           return NaN;
         };
-        // console.log(contentThing)
-        var contentString = [];
-        // var contentThing =
-        // '<div id="content">'+
-        // '<div id="siteNotice">'+
-        // '</div>'+
-        // '<h1 id="firstHeading" class="firstHeading">' + resjson[q][0]+ '</h1>'+
-        // '<div id="bodyContent">'+
-        // '<p>Location: ' + resjson[q].location +'</p>'+
-        // '<p>Bust: ' + contentString[2] + '</p>'+
-        // '<p>Difficulty: ' + contentString[3] + '</p>'+
-        // '<p>Photo_url: ' + contentString[4] + '</p>'+
-        // '<p>Description: ' + contentString[5]+ '</p>'+
-        // '</div>'+
-        // '</div>'
-
-        for(q=0; q<resjson.length; q++){
-          console.log(resjson[q])
-          var innerObj = resjson[q]
-            var postObj =
-              {
-                id: innerObj.id,
-                name: innerObj.name,
-                location: innerObj.location,
-                bust: innerObj.bust,
-                description: innerObj.description,
-                difficulty: innerObj.difficulty
-              }
-            // ['<div id="content">'+
-            // '<div id="siteNotice">'+
-            // '</div>'+
-            // '<h1 id="firstHeading" class="firstHeading">' + innerObj[w]+ '</h1>'+
-            // '<div id="bodyContent">'+
-            // '<p>Location: ' + innerObj[w] +'</p>'+
-            // '<p>Bust: ' + innerObj[w] + '</p>'+
-            // '<p>Difficulty: ' + innerObj[w] + '</p>'+
-            // '<p>Photo_url: ' + innerObj[w] + '</p>'+
-            // '<p>Description: ' + innerObj[w]+ '</p>'+
-            // '</div>'+
-            // '</div>']
-          }
-          contentString.push(postObj)
-
-        console.log(contentString)
 
         for (i = 0; i < coordinants.length; i++) {
           var parseLat = filterFloat(coordinants[i].lat)
@@ -185,11 +141,3 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 }
-
-//   var makeMarker = (latlng) => {
-//     var marker = new google.maps.Marker({
-//     position: latlng,
-//     map: map,
-//     title: 'Hello World!'
-//   })
-// }
