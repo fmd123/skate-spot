@@ -25,7 +25,9 @@ h1 {
 .space{
   padding-top 80px;
 }
-
+#photo-url #description{
+  width:75%;
+}
 
   /* Always set the map height explicitly to define the size of the div
    * element that contains the map. */
