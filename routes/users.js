@@ -34,10 +34,10 @@ router.post('/users', (req, res, next) => {
     last_name: last_name,
     email: email,
     hashed_password: bcrypt.hashSync(password, salt),
-    bio: bio,
-    admin: admin,
-    invite_code: invite_code,
-    inviter_id: inviter_id
+    bio: bio
+    // admin: admin,
+    // invite_code: invite_code,
+    // inviter_id: inviter_id
   })
   .returning('*')
   .then((users)=>{
@@ -79,15 +79,15 @@ router.patch('/users/:id', (req, res, next)=>{
   if(bio){
     editUser.bio = bio
   }
-  if(admin){
-    editUser.admin = admin
-  }
-  if(invite_code){
-    editUser.invite_code = invite_code
-  }
-  if(inviter_id){
-    editUser.inviter_id = inviter_id
-  }
+  // if(admin){
+  //   editUser.admin = admin
+  // }
+  // if(invite_code){
+  //   editUser.invite_code = invite_code
+  // }
+  // if(inviter_id){
+  //   editUser.inviter_id = inviter_id
+  // }
 
   knex('users')
   .where('id', id)
@@ -105,10 +105,10 @@ router.patch('/users/:id', (req, res, next)=>{
         first_name: users[0].first_name,
         last_name: users[0].last_name,
         email: users[0].email,
-        bio: users[0].bio,
-        admin: users[0].admin,
-        invite_code: users[0].invite_code,
-        inviter_id: users[0].inviter_id
+        bio: users[0].bio
+        // admin: users[0].admin,
+        // invite_code: users[0].invite_code,
+        // inviter_id: users[0].inviter_id
       }
       res.json(user)
     })
@@ -117,7 +117,9 @@ router.patch('/users/:id', (req, res, next)=>{
 })
 
 router.delete('/users/:id', (req, res, next)=>{
+  console.log("in DELETE YO");
   const id = req.params.id
+  console.log(id)
   knex('users')
 
   .then((users)=>{
@@ -127,16 +129,17 @@ router.delete('/users/:id', (req, res, next)=>{
     .returning('*')
 
     .then((users)=> {
+      console.log('users:',users)
       let user = {
         id: users[0].id,
         user_name: users[0].user_name,
         first_name: users[0].first_name,
         last_name: users[0].last_name,
         email: users[0].email,
-        bio: users[0].bio,
-        admin: users[0].admin,
-        invite_code: users[0].invite_code,
-        inviter_id: users[0].inviter_id
+        bio: users[0].bio
+        // admin: users[0].admin,
+        // invite_code: users[0].invite_code,
+        // inviter_id: users[0].inviter_id
       }
       res.json(user)
     })

@@ -8,13 +8,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/map', function(req, res, next) {
-  res.render('map', { title: 'Skate-Spotter' });
+  res.render('map', { title: 'Dont blow em out' });
 });
 
-// router.get('/token', function(req, res, next) {
-//   res.render('token', { title: 'Skate-Spotter' });
-// })
+router.get('/register', function(req, res, next) {
+  res.render('register', { title: 'Sup Newbie' });
+});
 
+router.get('/about', function(req, res, next) {
+  res.render('about', { title: '... But this guy, luvs the spots' });
+});
 
 
 module.exports = router;

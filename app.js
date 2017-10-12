@@ -11,7 +11,7 @@ var token = require('./routes/token');
 var index = require('./routes/index');
 var spots = require('./routes/spots');
 var users = require('./routes/users');
-var cors = require('cors');
+var cors = require('cors')
 var app = express();
 
 // view engine setup
@@ -37,6 +37,7 @@ app.use('/', token);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
+  console.log(err);
   err.status = 404;
   next(err);
 });
