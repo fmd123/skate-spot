@@ -34,10 +34,10 @@ router.post('/users', (req, res, next) => {
     last_name: last_name,
     email: email,
     hashed_password: bcrypt.hashSync(password, salt),
-    bio: bio,
-    admin: admin,
-    invite_code: invite_code,
-    inviter_id: inviter_id
+    bio: bio
+    // admin: admin,
+    // invite_code: invite_code,
+    // inviter_id: inviter_id
   })
   .returning('*')
   .then((users)=>{

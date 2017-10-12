@@ -19,11 +19,5 @@ router.get('/about', function(req, res, next) {
   res.render('about', { title: '... But this guy, luvs the spots' });
 });
 
-router.get('/spotform', function(req, res, next) {
-  res.render('spotform', { title: 'You got spots bro?' });
-});
-
-
-
 
 module.exports = router;

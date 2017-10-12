@@ -1,12 +1,5 @@
 $(document).ready(() => {
-
   console.log('test')
-
-  // $('#submitButton').click(function(event) {
-  //   event.preventDefault()
-  //   console.log('test 2')
-  // })
-
 
   $('#loginForm').submit(function(event) {
     event.preventDefault()
@@ -16,10 +9,10 @@ $(document).ready(() => {
 
 
     if (!email) {
-      //send error
+      alert('yo bro, need yr email STAT')
     }
     if (!password) {
-      //send error
+      alert('who you foolin dawg? no password?')
     }
 
     const options = {
