@@ -44,21 +44,51 @@ function initMap(latlng) {
             return Number(value);
           return NaN;
         };
+        // console.log(contentThing)
+        var contentString = [];
+        // var contentThing =
+        // '<div id="content">'+
+        // '<div id="siteNotice">'+
+        // '</div>'+
+        // '<h1 id="firstHeading" class="firstHeading">' + resjson[q][0]+ '</h1>'+
+        // '<div id="bodyContent">'+
+        // '<p>Location: ' + resjson[q].location +'</p>'+
+        // '<p>Bust: ' + contentString[2] + '</p>'+
+        // '<p>Difficulty: ' + contentString[3] + '</p>'+
+        // '<p>Photo_url: ' + contentString[4] + '</p>'+
+        // '<p>Description: ' + contentString[5]+ '</p>'+
+        // '</div>'+
+        // '</div>'
+
         for(q=0; q<resjson.length; q++){
           console.log(resjson[q])
-          var contentString = '<div id="content">'+
-          '<div id="siteNotice">'+
-          '</div>'+
-          '<h1 id="firstHeading" class="firstHeading">' + resjson[q].name + '</h1>'+
-          '<div id="bodyContent">'+
-          '<p>Location: ' + resjson[q].location +'</p>'+
-          '<p>Bust: ' + resjson[q].bust + '</p>'+
-          '<p>Difficulty: ' + resjson[q].difficulty + '</p>'+
-          '<p>Photo_url: ' + resjson[q].photo_url + '</p>'+
-          '<p>Description: ' + resjson[q].description + '</p>'+
-          '</div>'+
-          '</div>';
-        }
+          var innerObj = resjson[q]
+            var postObj =
+              {
+                id: innerObj.id,
+                name: innerObj.name,
+                location: innerObj.location,
+                bust: innerObj.bust,
+                description: innerObj.description,
+                difficulty: innerObj.difficulty
+              }
+            // ['<div id="content">'+
+            // '<div id="siteNotice">'+
+            // '</div>'+
+            // '<h1 id="firstHeading" class="firstHeading">' + innerObj[w]+ '</h1>'+
+            // '<div id="bodyContent">'+
+            // '<p>Location: ' + innerObj[w] +'</p>'+
+            // '<p>Bust: ' + innerObj[w] + '</p>'+
+            // '<p>Difficulty: ' + innerObj[w] + '</p>'+
+            // '<p>Photo_url: ' + innerObj[w] + '</p>'+
+            // '<p>Description: ' + innerObj[w]+ '</p>'+
+            // '</div>'+
+            // '</div>']
+          }
+          contentString.push(postObj)
+
+        console.log(contentString)
+
         for (i = 0; i < coordinants.length; i++) {
           var parseLat = filterFloat(coordinants[i].lat)
           console.log(parseLat)
@@ -74,9 +104,22 @@ function initMap(latlng) {
           })
           var infowindow = new google.maps.InfoWindow();
           google.maps.event.addListener(marker, 'click', (function(marker, i, infowindow) {
-            return function() {
+            return function mapWindow() {
               console.log('Klick! Marker=' + resjson[i]);
-              infowindow.setContent(JSON.stringify(contentString));
+                var contentThing =
+                '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">' + resjson[i].name+ '</h1>'+
+                '<div id="bodyContent">'+
+                '<p>Location: ' + resjson[i].location +'</p>'+
+                '<p>Bust: ' + resjson[i].bust + '</p>'+
+                '<p>Difficulty: ' + resjson[i].bust + '</p>'+
+                '<p>Photo_url: ' + resjson[i].photo_urlt + '</p>'+
+                '<p>Description: ' + resjson[i].description+ '</p>'+
+                '</div>'+
+                '</div>'
+              infowindow.setContent(contentThing);
               infowindow.open(map, marker);
             };
           })(marker, i, infowindow));
