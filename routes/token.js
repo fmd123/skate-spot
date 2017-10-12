@@ -36,7 +36,7 @@ router.post('/token', function(req, res, next){
         let token = jwt.sign({id: data.id}, process.env.JWT_KEY)
         console.log(token)
         res.cookie('token', token, {httpOnly:true})
-        res.send({'homie is logged in as' + id: data.id, email: data.email, firstName: data.first_name, lastName: data.last_name})
+        res.send({id: data.id, email: data.email, firstName: data.first_name, lastName: data.last_name})
       }else{
         res.status(400)
         res.setHeader('Content-type', 'text/plain')
@@ -50,7 +50,5 @@ router.delete('/token', function(req, res, next){
   res.clearCookie('token', { path: '/token'})
   res.send()
 })
-
-
 
 module.exports = router;
