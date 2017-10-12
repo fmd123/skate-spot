@@ -4,19 +4,19 @@ $(document).ready(()=>{
 $('#registerForm').submit(function(event){
   event.preventDefault()
 
-  const userName = $('.userNameInput').val()
-  const firstName = $('.firstNameInput').val()
-  const lastName = $('.lastNameInput').val()
+  const user_name = $('.userNameInput').val()
+  const first_name = $('.firstNameInput').val()
+  const last_name = $('.lastNameInput').val()
   const password = $('.passwordInput').val()
-  const confirmPassword = $('.confirmPasswordInput').val()
+  const confirm_password = $('.confirmPasswordInput').val()
   const email = $('.emailInput').val()
 
-  console.log(userName);
-  console.log(firstName);
-  console.log(lastName);
+  console.log(user_name);
+  console.log(first_name);
+  console.log(last_name);
   console.log(email);
   console.log(password);
-  console.log(confirmPassword);
+  console.log(confirm_password);
 
   // if(!userName) {
   //   alert('need a user name dawgie!')
@@ -27,7 +27,7 @@ $('#registerForm').submit(function(event){
 
   const options = {
     contentType: 'application/json',
-    data: JSON.stringify({userName, firstName, lastName, password, confirmPassword, email}),
+    data: JSON.stringify({user_name, first_name, last_name, password, confirm_password, email}),
     dataType: 'json',
     type: 'POST',
     url: '/users'
