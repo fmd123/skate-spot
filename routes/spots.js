@@ -63,6 +63,7 @@ router.post('/spots', (req, res, next) => {
 router.patch('/spots/:id', (req, res, next) => {
 
   const id = req.params.id
+  console.log('this is id' +id)
   const { lat, lon, name, location, bust, difficulty, photo_url, description } = req.body
 
   let newSpot = {}
@@ -96,6 +97,8 @@ router.patch('/spots/:id', (req, res, next) => {
   }
 
 
+  console.log('LOOKFORME123' + id);
+
   knex('spots')
   .where('id', id)
 
@@ -125,7 +128,9 @@ router.patch('/spots/:id', (req, res, next) => {
 
 router.delete('/spots/:id', (req, res, next)=>{
   const id = req.params.id
-  console.log('THISISWHATYOUARELOOKINGFOR')
+  console.log("this is delete id" +id)
+
+  // console.log('THISISWHATYOUARELOOKINGFOR')
   knex('spots')
     .then((spots)=>{
       knex('spots')
