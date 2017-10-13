@@ -91,7 +91,7 @@ function initMap(latlng) {
 
         }
     })
-  
+
 
 ///GEOCODE SHIT
 function geocodeAddress(geocoder, resultsMap) {
