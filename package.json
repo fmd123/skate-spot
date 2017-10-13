@@ -5,9 +5,8 @@
   "scripts": {
     "knex": "knex",
     "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www",
-    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;"    
-
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
+    "nodemon": "node app.js"    
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
