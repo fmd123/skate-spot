@@ -22,13 +22,11 @@ function initMap(latlng) {
   fetch('http://localhost:3000/spots')
     .then((res) => res.json())
     .then((resjson) => {
-        console.log(resjson)
         for (j = 0; j < resjson.length; j++) {
           for (var prop in resjson[j]) {
             var name = resjson[j].name;
             var lat = resjson[j].lat;
             var lng = resjson[j].lon;
-
           }
 
           const coord = {
@@ -126,6 +124,7 @@ function geocodeAddress(geocoder, resultsMap) {
           description: description
         }
       }
+
       $.ajax(jaxObj)
         .done((spot) => {
           //nothing needed per say, maybe refresh page?
@@ -140,4 +139,24 @@ function geocodeAddress(geocoder, resultsMap) {
     }
   });
 }
-}
+
+$('#logout').click(function(event){
+  event.preventDefault()
+
+  const options = {
+    contentType: 'application/json',
+    type: "DELETE",
+    url: '/token'
+  }
+
+    $.ajax(options)
+    .done((data)=>{
+      window.location.href = '/'
+    })
+    .fail(($xhr)=>{
+      console.log($xhr.responseText)
+    })
+
+})
+
+};

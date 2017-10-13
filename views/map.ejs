@@ -2,11 +2,6 @@
 <html>
 
 <head>
-
-
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-
   <!-- Bootstrap core CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -14,9 +9,9 @@
   <link href="/stylesheets/style.css" rel="stylesheet">
 
 
-  <title>map.ejs</title>
+  <title>Skate Spotter</title>
 
-  <title>Simple Map</title>
+  <title>Skate Spotter</title>
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -32,14 +27,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-        <a class="navbar-brand" href="/about">SKATE SPOT</a>
+        <a class="navbar-brand" href="/about">SKATE SPOTTER</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a id='logout'>Log Out</a></li>
+          <li><a href="/" id='logout'>Log Out</a></li>
           <li><a href="#top">Back to Map</a></li>
           <li><a href="#createSkate">Create Skate Spot</a></li>
-          <!-- <li><a href="#">Find Users</a></li> -->
             </ul>
       </div>
       <!--/.nav-collapse -->
@@ -54,132 +48,31 @@
     <div class="container" id = "createSkate">
 
       <form  class="well form-horizontal" action="createSkateSpot" method="post" id="SpotForm">
-        <h2 >Create New Skate Spot</h2>
         <fieldset>
           <form>
-
-            <div class="form-group">
-              <label for="closeAddress">Closest Address:</label>
-              <input type="text" class="form-control" id="closeAdress">
-            </div>
 
             <div class="form-group">
     <div class="container" id="createSkate">
 
       <form class="well form-horizontal" method="post" id="spotForm">
-        <h2>Create New Skate Spot</h2>
+        <h2>Create New Spot</h2>
 
         <div id="floating-panel">
           <input id="address" type="textbox" value="address">
-        <!-- </div>
-        <div class="floating-panel"> -->
+
           <input id="name" type="textbox" value="name">
-        <!-- </div>
-        <div class="floating-panel"> -->
-          <!-- <input id="address2" type="textbox" value="street address"> -->
-        <!-- </div>
-        <div class="floating-panel"> -->
+
           <input id="bust" type="textbox" value="bust level">
-        <!-- </div>
-        <div class="floating-panel"> -->
+
           <input id="difficulty" type="textbox" value="difficulty">
-        <!-- </div>
-        <div class="floating-panel"> -->
+
           <input id="photo_url" type="textbox" value="photo_url">
-        <!-- </div>
-        <div class="floating-panel"> -->
+
           <input id="description" type="textbox" value="description">
-        <!-- </div>
-        <div> -->
+
           <input id="submit" type="button" value="submit">
         </div>
-        <!-- <fieldset> -->
-        <!-- <form> -->
-
-        <!-- <div>
-              <label for="closeAddress">Closest Address:</label>
-              <input type="text" id="address">
-            </div>
-
-            <div>
->>>>>>> 0bec4b3caf4d36f6d45613c4db80378ac21c9fed
-              <label for="spotName">Spot Name:</label>
-              <input type="text" class="form-control" id="spotName">
-            </div>
-
-            <div class="radio">
-              <h3>Bust Level</h3>
-              <label><input type="radio" name="bustRadio">High</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="bustRadio">Medium</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="bustRadio">Low</label>
-            </div>
-
-            <div class="radio">
-              <h3>Difficulty Level</h3>
-              <label><input type="radio" name="diffRadio">High</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="diffRadio">Medium</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="diffRadio">Low</label>
-            </div>
-
-
-<<<<<<< HEAD
-            <div class="form-group">
-              <label for="photo-url">Photo URL:</label>
-              <input type="url" class="form-control" id="photo-url">
   </div>
-
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <input type="text" class="form-control" id="description">
-</div>
-
-              <br>
-              <button type="submit" class="btn btn-default">Submit</button>
-
-
-          </form>
-        </fieldset>
-
-
-      </form>
-
-    </div>
-    <!end of create skate spot div  -->
-  </div>
-
-  <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
-
-  <!-- <div class="container">
-    <div class="container" id = "findUser">
-
-      <form  class="well form-horizontal" action="findUser" method="post" id="">
-        <h2 >Find A User</h2>
-        <fieldset>
-          <form>
-
-            <div class="form-group">
-              <label for="userName">User Name:</label>
-              <input type="text" class="form-control" id="userName">
-            </div> -->
-
-
-
-
-
-
-
-
-
-
-
               <br>
               <button type="submit" class="btn btn-default">Submit</button>
 
@@ -194,15 +87,7 @@
             <div>
               <label for="description">Description:</label>
               <input type="text" class="form-control" id="description">
-            </div> -->
-
-        <!-- <button type="submit" class="btn btn-default" id="submit">Submit</button> -->
-
-
-        <!-- </form> -->
-        <!-- </fieldset> -->
-
-
+            </div>
       </form>
 
     </div>
@@ -214,8 +99,6 @@
     var coordinants = [];
 
     function initMap(latlng) {
-      // var myLatLng = {lat: 21, lng: -141};
-
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
         center: {
@@ -265,13 +148,7 @@
         })
     }
 
-    //   var makeMarker = (latlng) => {
-    //     var marker = new google.maps.Marker({
-    //     position: latlng,
-    //     map: map,
-    //     title: 'Hello World!'
-    //   })
-    // }
+
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

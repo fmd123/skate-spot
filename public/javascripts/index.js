@@ -26,13 +26,12 @@ $(document).ready(() => {
 
     $.ajax(options)
       .done((data) => {
-        //do nothing
         console.log('success')
         window.location.href = '/map'
       })
       .fail(($xhr) => {
         console.log($xhr.responseText)
-        //boostrap error
+        window.location.href = '/'
       })
 
     console.log(email)
