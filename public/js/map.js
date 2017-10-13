@@ -74,7 +74,7 @@ function initMap(latlng) {
               '<p>Photo_url: ' + resjson[i].photo_urlt + '</p>' +
               '<p>Description: ' + resjson[i].description + '</p>' +
               '</div>' +
-              '<button onclick="editFunction()" id="modal">Edit</button>' +
+              '<button onclick="editFunction(' + resjson[i].id + ')" id="modal">Edit</button>' +
               '<button onclick="deleteFunction(' + resjson[i].id + ')" >Delete</button></div>'
             infowindow.setContent(contentThing);
             infowindow.open(map, marker);
@@ -105,6 +105,7 @@ function initMap(latlng) {
           map: resultsMap,
           position: results[0].geometry.location
         });
+        // var id = document.getElementById('id').value;
         var location = document.getElementById('address').value;
         var name = document.getElementById('name').value;
         var bust = document.getElementById('bust').value;
@@ -176,8 +177,8 @@ function editFunction(id) {
       modal.style.display = "none";
     }
   }
-  document.getElementById('submit2').addEventListener('click', function(ids) {
-    fetch(`http://localhost:3000/spots/${ids}`)
+  document.getElementById('submit2').addEventListener('click', function(poop) {
+    fetch(`http://localhost:3000/spots/${id}`)
     var location = document.getElementById('address2').value;
     var name = document.getElementById('name2').value;
     var bust = document.getElementById('bust2').value;
