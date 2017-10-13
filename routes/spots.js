@@ -117,7 +117,7 @@ router.patch('/spots/:id', (req, res, next) => {
         photo_url: spots[0].photo_url,
         description: spots[0].description
       }
-      res.send(spot)
+      res.json(spot)
     })
     .catch((err) => next(err))
   })
@@ -125,7 +125,7 @@ router.patch('/spots/:id', (req, res, next) => {
 
 router.delete('/spots/:id', (req, res, next)=>{
   const id = req.params.id
-
+  console.log('THISISWHATYOUARELOOKINGFOR')
   knex('spots')
     .then((spots)=>{
       knex('spots')

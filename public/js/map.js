@@ -63,18 +63,19 @@ function initMap(latlng) {
             return function mapWindow() {
               console.log('Klick! Marker=' + resjson[i]);
                 var contentThing =
-                '<div id="content">'+
-                '<div id="siteNotice">'+
+                '<div class="content">'+
+                '<div class="siteNotice">'+
                 '</div>'+
-                '<h1 id="firstHeading" class="firstHeading">' + resjson[i].name+ '</h1>'+
-                '<div id="bodyContent">'+
+                '<h1 class="firstHeading" class="firstHeading">' + resjson[i].name+ '</h1>'+
+                '<div class="bodyContent">'+
                 '<p>Location: ' + resjson[i].location +'</p>'+
                 '<p>Bust: ' + resjson[i].bust + '</p>'+
-                '<p>Difficulty: ' + resjson[i].bust + '</p>'+
+                '<p>Difficulty: ' + resjson[i].difficulty + '</p>'+
                 '<p>Photo_url: ' + resjson[i].photo_urlt + '</p>'+
                 '<p>Description: ' + resjson[i].description+ '</p>'+
                 '</div>'+
-                '</div>'
+                '<button onclick="editFunction()">Edit</button>' +
+                '<button onclick="deleteFunction('+resjson[i].id+')" >Delete</button></div>'
               infowindow.setContent(contentThing);
               infowindow.open(map, marker);
             };
@@ -129,6 +130,7 @@ function geocodeAddress(geocoder, resultsMap) {
       $.ajax(jaxObj)
         .done((spot) => {
           //nothing needed per say, maybe refresh page?
+          window.location.href = '/map'
           console.log('you won that ajax bruv' + spot)
         })
         .fail(($xhr) => {
@@ -141,3 +143,27 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 }
+
+function deleteFunction(id){
+  fetch(`http://localhost:3000/spots/${id}`, {
+    method: 'DELETE'
+  })
+  .then(() => {
+    window.location.href='/map'
+  })
+
+};
+
+function deleteFunction(id, item){
+  fetch(`http://localhost:3000/spots/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(item)
+  })
+  .then(() => {
+    window.location.href='/map'
+  })
+};
