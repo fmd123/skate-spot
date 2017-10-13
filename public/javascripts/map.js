@@ -19,7 +19,7 @@ function initMap(latlng) {
   });
 
   // set pre-existing markers
-  fetch('http://localhost:3000/spots')
+  fetch('/spots')
     .then((res) => res.json())
     .then((resjson) => {
       console.log(resjson)
