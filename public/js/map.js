@@ -149,12 +149,13 @@ function deleteFunction(id){
     method: 'DELETE'
   })
   .then(() => {
+    console.log('deleted the thing');
     window.location.href='/map'
   })
 
 };
 
-function deleteFunction(id, item){
+function editFunction(id, item){
   fetch(`http://localhost:3000/spots/${id}`, {
     method: 'PATCH',
     headers: {
@@ -167,3 +168,9 @@ function deleteFunction(id, item){
     window.location.href='/map'
   })
 };
+
+// Create modal on edit click
+// populate modal with the information
+// ^^in form
+// on modal submit close modal and send form data to patch route with the spots id
+// bam
