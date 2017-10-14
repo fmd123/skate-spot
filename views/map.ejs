@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style = "padding-top:0;">
 
 <head>
   <!-- Bootstrap core CSS -->
@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body style = "padding-top:0;">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -44,55 +44,98 @@
 
   <div id="map"></div>
   <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+
   <div class="container">
     <div class="container" id = "createSkate">
 
-      <form  class="well form-horizontal" action="createSkateSpot" method="post" id="SpotForm">
+
+
+      <h1>Create New Skate Spot</h1>
+      <form id="registerForm" class="well form-horizontal" id="SpotForm" action="createSkateSpot" method="post">
         <fieldset>
-          <form>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Closest Address</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                <input id="address" type="textbox" placeholder="Closest Address">
+              </div>
+            </div>
+          </div>
 
-            <div class="form-group">
-    <div class="container" id="createSkate">
+          <div class="form-group">
+            <label class="col-md-4 control-label">Name</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                <input id = "name" placeholder="Name"  type="textbox">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Bust Level</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-alert"></i></span>
+                <input id="bust" type="textbox" placeholder="Bust Level">
+              </div>
+            </div>
+          </div>
 
-      <form class="well form-horizontal" method="post" id="spotForm">
-        <h2>Create New Spot</h2>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Difficulty Level</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                <input id="difficulty" type="textbox" placeholder="Difficulty Level">
+              </div>
+            </div>
+          </div>
 
-        <div id="floating-panel">
-          <input id="address" type="textbox" value="address">
+          <!--Text input-->
 
-          <input id="name" type="textbox" value="name">
+          <div class="form-group">
+            <label class="col-md-4 control-label">Photo-url</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                <input id="photo_url" type="text" placeholder="Photo url">
+              </div>
+            </div>
+          </div>
 
-          <input id="bust" type="textbox" value="bust level">
-
-          <input id="difficulty" type="textbox" value="difficulty">
-
-          <input id="photo_url" type="textbox" value="photo_url">
-
-          <input id="description" type="textbox" value="description">
-
-          <input id="submit" type="button" value="submit">
-        </div>
-  </div>
-              <br>
-              <button type="submit" class="btn btn-default">Submit</button>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Description</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-star-empty"></i></span>
+                <input id="description" type="textbox" placeholder="description">
+              </div>
+            </div>
+          </div>
 
 
-          </form>
+          <!--Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4"><br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <button id="submitButton" type="submit" class="submitSignUp btn btn-warning"><span class="glyphicon glyphicon-send"> Submit</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+            </div>
+          </div>
+
         </fieldset>
-            <div>
-              <label for="photo-url">Photo URL:</label>
-              <input type="url" class="form-control" id="photo-url">
-            </div>
-
-            <div>
-              <label for="description">Description:</label>
-              <input type="text" class="form-control" id="description">
-            </div>
       </form>
+      <!--end of New User Form -->
 
     </div>
-    <!--end of create skate spot div  -->
-  </div>
+
+
+
+
+
+
+
 
   <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
   <script>

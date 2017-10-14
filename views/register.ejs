@@ -48,8 +48,8 @@
     <div class="container">
 
 
-      
-      <h2>Register New User</h2>
+
+      <h1>Register New User</h1>
       <form id="registerForm" class="well form-horizontal" action="register" method="post">
         <fieldset>
           <div class="form-group">
@@ -84,7 +84,7 @@
             <label class="col-md-4 control-label">Password</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input name="password" placeholder="Password" class="passwordInput" type="password">
               </div>
             </div>
@@ -96,7 +96,7 @@
             <label class="col-md-4 control-label">Confirm Password</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input name="confirm_password" placeholder="Confirm Password" class="confirmPasswordInput" type="password">
               </div>
             </div>
@@ -113,36 +113,21 @@
             </div>
           </div>
 
-
-          <!--  -->
           <div class="form-group">
-            <label for="bio">Brief Bio:</label>
-            <textarea class="form-control" rows="5" id="bio"></textarea>
-          </div>
-          <!--  -->
-
-          <div class="form-group">
-            <label class="col-md-4 control-label">Inviter code</label>
+            <label class="col-md-4 control-label">Brief Bio</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input name="email" placeholder="Inviter Code" class="form-control" type="text">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                <input id = "bio" name="bio" placeholder="Five Words" class="lastNameInput" type="text">
               </div>
             </div>
           </div>
-
-
-
-
-
-          <!-- Success message -->
-          <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
 
           <!--Button -->
           <div class="form-group">
             <label class="col-md-4 control-label"></label>
             <div class="col-md-4"><br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-              <button id="submitButton" type="submit" class="submitSignUp"><span class="glyphicon glyphicon-send"> Submit</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+              <button id="submitButton" type="submit" class="submitSignUp btn btn-warning"><span class="glyphicon glyphicon-send"> Submit</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
             </div>
           </div>
 
@@ -151,17 +136,3 @@
       <!--end of New User Form -->
 
     </div>
-    <!--based on: https://codepen.io/juff03/pen/OXaXRG -->
-
-  </div>
-  <!-- /.container -->
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/javascripts/register.js" charset="utf-8"></script>
-<script type="text/javascript" src = /public/javascripts/register.js>
-
-</script>
-</body>
-
-</html>

@@ -6,7 +6,7 @@
     "knex": "knex",
     "start": "node ./bin/www",
     "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
-    "nodemon": "node app.js"    
+    "nodemon": "node app.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
@@ -27,7 +27,17 @@
     "pg": "^7.3.0",
     "serve-favicon": "~2.4.2"
   },
-  "engines": {
-    "node": "v8.6.0"
-  }
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmd123/skate-spot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmd123/skate-spot/issues"
+  },
+  "homepage": "https://github.com/fmd123/skate-spot#readme",
+  "description": ""
 }
