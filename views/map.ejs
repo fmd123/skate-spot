@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style = "padding-top:0;">
 
 <head>
 
@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body style = "padding-top:0;">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -50,129 +50,91 @@
 
   <div id="map"></div>
   <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
-  <br>
-  <br>
-  <h1 >Create New Skate Spot</h1>
-  <br>
+
   <div class="container">
     <div class="container" id = "createSkate">
 
-      <form  class="well form-horizontal" action="createSkateSpot" method="post" id="SpotForm">
 
+
+      <h1>Create New Skate Spot</h1>
+      <form id="registerForm" class="well form-horizontal" id="SpotForm" action="createSkateSpot" method="post">
         <fieldset>
-          <form>
-
-            <div class="form-group">
-              <label for="closeAddress">Closest Address:</label>
-              <input type="text" class="form-control" id="closeAdress">
+          <div class="form-group">
+            <label class="col-md-4 control-label">Closest Address</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+                <input id="address" type="textbox" placeholder="Closest Address">
+              </div>
             </div>
+          </div>
 
-            <div class="form-group">
-    <div class="container" id="createSkate">
-
-      <form class="well form-horizontal" method="post" id="spotForm">
-        <h2>Create New Skate Spot</h2>
-
-        <div id="floating-panel">
-          <input id="address" type="textbox" value="address">
-        <!-- </div>
-        <div class="floating-panel"> -->
-          <input id="name" type="textbox" value="name">
-        <!-- </div>
-        <div class="floating-panel"> -->
-          <!-- <input id="address2" type="textbox" value="street address"> -->
-        <!-- </div>
-        <div class="floating-panel"> -->
-          <input id="bust" type="textbox" value="bust level">
-        <!-- </div>
-        <div class="floating-panel"> -->
-          <input id="difficulty" type="textbox" value="difficulty">
-        <!-- </div>
-        <div class="floating-panel"> -->
-          <input id="photo_url" type="textbox" value="photo_url">
-        <!-- </div>
-        <div class="floating-panel"> -->
-          <input id="description" type="textbox" value="description">
-        <!-- </div>
-        <div> -->
-          <input id="submit" type="button" value="submit">
-        </div>
-        <!-- <fieldset> -->
-        <!-- <form> -->
-
-        <!-- <div>
-              <label for="closeAddress">Closest Address:</label>
-              <input type="text" id="address">
+          <div class="form-group">
+            <label class="col-md-4 control-label">Name</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                <input id = "name" placeholder="Name"  type="textbox">
+              </div>
             </div>
-
-            <div>
->>>>>>> 0bec4b3caf4d36f6d45613c4db80378ac21c9fed
-              <label for="spotName">Spot Name:</label>
-              <input type="text" class="form-control" id="spotName">
+          </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Bust Level</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-alert"></i></span>
+                <input id="bust" type="textbox" placeholder="Bust Level">
+              </div>
             </div>
+          </div>
 
-            <div class="radio">
-              <h3>Bust Level</h3>
-              <label><input type="radio" name="bustRadio">High</label>
+          <div class="form-group">
+            <label class="col-md-4 control-label">Difficulty Level</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                <input id="difficulty" type="textbox" placeholder="Difficulty Level">
+              </div>
             </div>
-            <div class="radio">
-              <label><input type="radio" name="bustRadio">Medium</label>
+          </div>
+
+          <!--Text input-->
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Photo-url</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                <input id="photo_url" type="text" placeholder="Photo url">
+              </div>
             </div>
-            <div class="radio">
-              <label><input type="radio" name="bustRadio">Low</label>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label">Description</label>
+            <div class="col-md-4 inputGroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-star-empty"></i></span>
+                <input id="description" type="textbox" placeholder="description">
+              </div>
             </div>
+          </div>
 
-            <div class="radio">
-              <h3>Difficulty Level</h3>
-              <label><input type="radio" name="diffRadio">High</label>
+
+          <!--Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label"></label>
+            <div class="col-md-4"><br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <button id="submitButton" type="submit" class="submitSignUp btn btn-warning"><span class="glyphicon glyphicon-send"> Submit</span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
             </div>
-            <div class="radio">
-              <label><input type="radio" name="diffRadio">Medium</label>
-            </div>
-            <div class="radio">
-              <label><input type="radio" name="diffRadio">Low</label>
-            </div>
+          </div>
 
-
-<<<<<<< HEAD
-            <div class="form-group">
-              <label for="photo-url">Photo URL:</label>
-              <input type="url" class="form-control" id="photo-url">
-  </div>
-
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <input type="text" class="form-control" id="description">
-</div>
-
-              <br>
-              <button type="submit" class="btn btn-default">Submit</button>
-
-
-          </form>
         </fieldset>
-
-
       </form>
+      <!--end of New User Form -->
 
     </div>
-    <!end of create skate spot div  -->
-  </div>
-
-  <!-- ::::::::::::::::::::::::::::::::::::::::::::: -->
-
-  <!-- <div class="container">
-    <div class="container" id = "findUser">
-
-      <form  class="well form-horizontal" action="findUser" method="post" id="">
-        <h2 >Find A User</h2>
-        <fieldset>
-          <form>
-
-            <div class="form-group">
-              <label for="userName">User Name:</label>
-              <input type="text" class="form-control" id="userName">
-            </div> -->
 
 
 
@@ -180,38 +142,6 @@
 
 
 
-
-
-
-
-              <br>
-              <button type="submit" class="btn btn-default">Submit</button>
-
-
-          </form>
-        </fieldset>
-            <div>
-              <label for="photo-url">Photo URL:</label>
-              <input type="url" class="form-control" id="photo-url">
-            </div>
-
-            <div>
-              <label for="description">Description:</label>
-              <input type="text" class="form-control" id="description">
-            </div> -->
-
-        <!-- <button type="submit" class="btn btn-default" id="submit">Submit</button> -->
-
-
-        <!-- </form> -->
-        <!-- </fieldset> -->
-
-
-      </form>
-
-    </div>
-    <!--end of create skate spot div  -->
-  </div>
 
   <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
   <script>
