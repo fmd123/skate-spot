@@ -19,7 +19,7 @@ function initMap(latlng) {
   });
 
   // set pre-existing markers
-  fetch('http://localhost:3000/spots')
+  fetch('/spots')
     .then((res) => res.json())
     .then((resjson) => {
       console.log(resjson)
@@ -166,7 +166,7 @@ $('#logout').click(function(event){
 })
 
 function deleteFunction(id) {
-  fetch(`http://localhost:3000/spots/${id}`, {
+  fetch(`/spots/${id}`, {
       method: 'DELETE'
     })
     .then(() => {
@@ -197,7 +197,7 @@ function editFunction(id) {
     }
   }
   document.getElementById('submit2').addEventListener('click', function(poop) {
-    fetch(`http://localhost:3000/spots/${id}`)
+    fetch(`/spots/${id}`)
     var location = document.getElementById('address2').value;
     var name = document.getElementById('name2').value;
     var bust = document.getElementById('bust2').value;
