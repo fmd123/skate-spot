@@ -2,17 +2,16 @@
 <html>
 
 <head>
-
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-
   <!-- Bootstrap core CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="/stylesheets/style.css" rel="stylesheet">
 
-  <title>Simple Map</title>
+
+  <title>Skate Spotter</title>
+
+  <title>Skate Spotter</title>
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -28,15 +27,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-        <a class="navbar-brand" href="/about">SKATE SPOT</a>
+        <a class="navbar-brand" href="/about">SKATE SPOTTER</a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="/">Log Out</a></li>
+          <li><a href="/" id='logout'>Log Out</a></li>
           <li><a href="#top">Back to Map</a></li>
           <li><a href="#createSkate">Create Skate Spot</a></li>
-          <!-- <li><a href="#">Find Users</a></li> -->
-        </ul>
+            </ul>
       </div>
       <!--/.nav-collapse -->
     </div>
@@ -47,34 +45,100 @@
   <div id="map"></div>
   <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
   <div class="container">
+    <div class="container" id = "createSkate">
+
+      <form  class="well form-horizontal" action="createSkateSpot" method="post" id="SpotForm">
+        <fieldset>
+          <form>
+
+            <div class="form-group">
     <div class="container" id="createSkate">
 
       <form class="well form-horizontal" method="post" id="spotForm">
-        <h2>Create New Skate Spot</h2>
+        <h2>Create New Spot</h2>
 
         <div id="floating-panel">
-          <input id="address" type="textbox" value="address">
-          <input id="name" type="textbox" value="name">
-          <input id="bust" type="textbox" value="bust level">
-          <input id="difficulty" type="textbox" value="difficulty">
-          <input id="photo_url" type="textbox" value="photo_url">
-          <input id="description" type="textbox" value="description">
+          <input id="address" type="textbox" placeholder="address">
+
+          <input id="name" type="textbox" placeholder="name">
+
+          <input id="bust" type="textbox" placeholder="bust level">
+
+          <input id="difficulty" type="textbox" placeholder="difficulty">
+
+          <input id="photo_url" type="textbox" placeholder="photo_url">
+
+          <input id="description" type="textbox" placeholder="description">
+
           <input id="submit" type="button" value="submit">
         </div>
+      </div>
+
+
+          </form>
+        </fieldset>
       </form>
 
     </div>
     <!--end of create skate spot div  -->
   </div>
+
+  <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <script>
+    var coordinants = [];
+    function initMap(latlng) {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14,
+        center: {
+          lat: 40.015861,
+          lng: -105.279284
+        }
+      })
+      fetch('http://localhost:3000/spots')
+        .then((res) => res.json())
+        .then((resjson) => {
+          console.log(resjson)
+          for (j = 0; j < resjson.length; j++) {
+            for (var prop in resjson[j]) {
+              var name = resjson[j].name;
+              var lat = resjson[j].lat;
+              var lng = resjson[j].lon;
+            }
+            const coord = {
+              lat: lat,
+              lng: lng
+            }
+            coordinants.push(coord);
+          }
+          var filterFloat = function(value) {
+            if (/^(\-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/
+              .test(value))
+              return Number(value);
+            return NaN;
+          };
+          for (i = 0; i < coordinants.length; i++) {
+            var parseLat = filterFloat(coordinants[i].lat)
+            console.log(parseLat)
+            var parseLng = filterFloat(coordinants[i].lng)
+            new google.maps.Marker({
+              position: {
+                lat: parseLat,
+                lng: parseLng
+              },
+              map: map,
+              title: name
+            })
+          }
+        })
+    }
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqfcq9t7kpG5XPKI5kHTdifsxwLMqUIDQ&callback=initMap"></script>
-  <script src="/js/map.js">
-  </script>
+  <script src="/javascripts/map.js" charset="utf-8"></script>
+
   <!-- add forms here -->
 
-  <!-- dont mess with me -->
-  <!-- The Modal -->
   <div id="myModal" class="modal">
 
     <!-- Modal content -->
@@ -84,12 +148,12 @@
         <h2>Create New Skate Spot</h2>
 
         <div id="floating-panel2">
-          <input id="address2" type="textbox" value="address">
-          <input id="name2" type="textbox" value="name">
-          <input id="bust2" type="textbox" value="bust level">
-          <input id="difficulty2" type="textbox" value="difficulty2">
-          <input id="photo_url2" type="textbox" value="photo_url">
-          <input id="description2" type="textbox" value="description">
+          <input id="address2" type="textbox" placeholder="address">
+          <input id="name2" type="textbox" placeholder="name">
+          <input id="bust2" type="textbox" placeholder="bust level">
+          <input id="difficulty2" type="textbox" placeholder="difficulty2">
+          <input id="photo_url2" type="textbox" placeholder="photo_url">
+          <input id="description2" type="textbox" placeholder="description">
           <input id="submit2" type="button" value="submit">
         </div>
       </form>
