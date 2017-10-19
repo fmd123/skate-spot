@@ -1,22 +1,50 @@
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height:100%;
+  margin:0;
+  padding-top:60px;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Fjalla One', sans-serif;
+  /*font-family: 'Orbitron', sans-serif;*/
   background-image: url("/images/michal-grosicki-235026.jpg")
 }
 
-a {
-  color: #00B7FF;
+a{
+  color:greenyellow;
 }
+
+
 h1 {
-  color: red;
+  font-size:65px;
+  font-weight:800;
+  font-style: italic;
+  color:greenyellow;
+  text-shadow: 2px 2px 5px purple;
+  text-align: center;
 }
-h2{
-  cornflowerblue;
+.firstHeading{
+  color:red;
+  font-size:40px;
+  font-style:normal;
+
 }
+
 .container{
   50%;
 }
-
+textarea{
+  text-align: center;
+  margin:auto;
+  width:50%
+}
+#bio{
+  width:50%
+}
+#registerForm{
+  width:70%;
+  margin:auto;
+}
 #success_message{ display: none;}
 
   /* Always set the map height explicitly to define the size of the div
@@ -24,13 +52,7 @@ h2{
   #map {
     height: 100%;
   }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
 
-  #bio{
-    width: 50%;
+  #createSkate{
+
   }
