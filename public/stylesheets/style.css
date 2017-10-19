@@ -23,6 +23,13 @@ h1 {
   text-shadow: 2px 2px 5px purple;
   text-align: center;
 }
+
+textarea{
+  display:block;
+  text-align: center;
+  margin:auto;
+  width:50%
+}
 .firstHeading{
   color:red;
   font-size:40px;
@@ -30,16 +37,28 @@ h1 {
 
 }
 
-.container{
+/*.container{
   50%;
+}*/
+.wider{
+  width:100%;
 }
-textarea{
-  text-align: center;
+.center{
+  text-align:center;
+  display: block;
   margin:auto;
-  width:50%
+  padding-left: 100px;
 }
+
+#createSkate{
+  width:100%;
+  margin:auto;
+}
+
 #bio{
   width:50%
+  margin:auto;
+  text-align: center;
 }
 #registerForm{
   width:70%;
@@ -51,8 +70,4 @@ textarea{
    * element that contains the map. */
   #map {
     height: 100%;
-  }
-
-  #createSkate{
-
   }

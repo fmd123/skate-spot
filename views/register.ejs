@@ -52,84 +52,82 @@
       <h1>Register New User</h1>
       <form id="registerForm" class="well form-horizontal" action="register" method="post">
         <fieldset>
+<!--USER NAME  -->
           <div class="form-group">
             <label class="col-md-4 control-label">Username</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="user_name" placeholder="Username" class="userNameInput" type="text">
+                <input name="user_name" placeholder="Username" class="userNameInput input-lg" type="text">
               </div>
             </div>
           </div>
+<!--FIRST NAME  -->
           <div class="form-group">
             <label class="col-md-4 control-label">First Name</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="first_name" placeholder="First Name" class="firstNameInput" type="text">
+                <input name="first_name" placeholder="First Name" class="firstNameInput input-lg" type="text">
               </div>
             </div>
           </div>
+<!--LAST NAME  -->
           <div class="form-group">
             <label class="col-md-4 control-label">Last Name</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="last_name" placeholder="Last Name" class="lastNameInput" type="text">
+                <input name="last_name" placeholder="Last Name" class="lastNameInput input-lg" type="text">
               </div>
             </div>
           </div>
-
+<!--PASSWORD  -->
           <div class="form-group">
             <label class="col-md-4 control-label">Password</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="password" placeholder="Password" class="passwordInput" type="password">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input name="password" placeholder="Password" class="passwordInput input-lg" type="password">
               </div>
             </div>
           </div>
 
-          <!--Text input-->
+<!--CONFIRM PASSWORD-->
 
           <div class="form-group">
             <label class="col-md-4 control-label">Confirm Password</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input name="confirm_password" placeholder="Confirm Password" class="confirmPasswordInput" type="password">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input name="confirm_password" placeholder="Confirm Password" class="confirmPasswordInput input-lg" type="password">
               </div>
             </div>
           </div>
 
-          <!-- Text input-->
+<!-- E-MAIL-->
           <div class="form-group">
             <label class="col-md-4 control-label">E-Mail</label>
             <div class="col-md-4 inputGroupContainer">
               <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input name="email" placeholder="E-Mail Address" class="emailInput" type="text">
+                <input name="email" placeholder="E-Mail Address" class="emailInput input-lg" type="text">
               </div>
             </div>
           </div>
-
+<!--BRIEF BIO  -->
           <div class="form-group">
-            <label class="col-md-4 control-label">Brief Bio</label>
-            <div class="col-md-4 inputGroupContainer">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
-                <input id = "bio" name="bio" placeholder="You in Five Words" class="bioInput" type="textbox">
+            <!-- <label class="col-md-4 control-label">Brief Bio</label> -->
+            <div class="col-md-12 inputGroupContainer center">
+              <div class="input-group col-md-12">
+                <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span> -->
+                <textarea id = "bio" name="bio" placeholder="You in Five Words" class="bioInput" type="textbox" style = "width:100%;height:50px;"></textarea>
               </div>
             </div>
           </div>
 
 
-
-
-
-
-
-          <!--Button -->
+<!--BUTTON -->
           <div class="form-group">
             <label class="col-md-4 control-label"></label>
             <div class="col-md-4"><br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
