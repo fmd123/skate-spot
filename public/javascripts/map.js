@@ -66,7 +66,7 @@ function initMap(latlng) {
               '<div class="content">' +
               '<div class="siteNotice">' +
               '</div>' +
-              '<h1 class="firstHeading" class="firstHeading">' + resjson[i].name + '</h1>' +
+              '<h2 class="firstHeading" class="firstHeading">' + resjson[i].name + '</h2>' +
               '<div class="bodyContent">' +
               '<p>Location: ' + resjson[i].location + '</p>' +
               '<p>Bust: ' + resjson[i].bust + '</p>' +

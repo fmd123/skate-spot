@@ -24,6 +24,15 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 40px;
+  text-align: center;
+  font-style: italic;
+  color: darkorange;
+  text-shadow: 2px 2px 5px indigo;
+
+}
+
 textarea{
   display:block;
   text-align: center;
@@ -31,15 +40,11 @@ textarea{
   width:50%
 }
 .firstHeading{
-  color:red;
+  color:darkorange;
   font-size:40px;
   font-style:normal;
-
 }
 
-/*.container{
-  50%;
-}*/
 .wider{
   width:100%;
 }
