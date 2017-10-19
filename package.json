@@ -40,4 +40,10 @@
   },
   "homepage": "https://github.com/fmd123/skate-spot#readme",
   "description": ""
-}
+},
+
+{
+  "engines": {
+    "node": "v8.6.0"
+    }
+  }
