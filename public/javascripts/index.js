@@ -1,5 +1,4 @@
 $(document).ready(() => {
-  console.log('test')
 
   $('#loginForm').submit(function(event) {
     event.preventDefault()
@@ -26,13 +25,16 @@ $(document).ready(() => {
 
     $.ajax(options)
       .done((data) => {
-        console.log('success')
+        console.log('success in index')
         window.location.href = '/map'
       })
       .fail(($xhr) => {
         console.log($xhr.responseText)
         window.location.href = '/'
       })
+
+      console.log('options = ' + options)
+
 
     console.log(email)
     console.log(password)

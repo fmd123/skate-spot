@@ -38,7 +38,7 @@ $('#registerForm').submit(function(event){
 
   $.ajax(options)
     .done((data)=>{
-      console.log('success')
+      console.log('success in register')
       window.location.href = '/'
     })
     .fail(($xhr)=>{
