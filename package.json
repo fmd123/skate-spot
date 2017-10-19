@@ -39,10 +39,8 @@
     "url": "https://github.com/fmd123/skate-spot/issues"
   },
   "homepage": "https://github.com/fmd123/skate-spot#readme",
-  "description": ""
-},
+  "description": "",
 
-{
   "engines": {
     "node": "v8.6.0"
     }
