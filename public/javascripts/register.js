@@ -39,7 +39,7 @@ $('#registerForm').submit(function(event){
   $.ajax(options)
     .done((data)=>{
       console.log('success')
-      window.location.href = '/map'
+      window.location.href = '/'
     })
     .fail(($xhr)=>{
       console.log($xhr.responseText)
