@@ -10,9 +10,10 @@ const cookieParser = require('cookie-parser')
 const SECRET = process.env.JWT_KEY;
 
 router.get('/token', (req, res, next)=>{
+  console.log('is this the 500 error???')
+
   jwt.verify(req.cookies.token, SECRET, (err, _payload) =>{
     if(err) {
-      console.log('is this the 500 error???')
       res.send(false)
     }else{
       res.send(true)
