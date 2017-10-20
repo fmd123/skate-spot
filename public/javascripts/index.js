@@ -25,8 +25,8 @@ $(document).ready(() => {
 
 
     $.ajax(options)
-      .done((data) => {
-        console.log(data)
+      .done((options) => {
+        console.log(options)
         console.log('success in index')
         window.location.href = '/map'
       })

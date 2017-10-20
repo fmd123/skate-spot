@@ -12,6 +12,7 @@ const SECRET = process.env.JWT_KEY;
 router.get('/token', (req, res, next)=>{
   jwt.verify(req.cookies.token, SECRET, (err, _payload) =>{
     if(err) {
+      console.log('is this the 500 error???')
       res.send(false)
     }else{
       res.send(true)
@@ -32,9 +33,9 @@ router.post('/token', function(req, res, next){
         res.setHeader('Content-Type', 'text/plain')
         res.send('You playin?')
       }else if(bcrypt.compareSync(req.body.password, data.hashed_password)){
-        console.log(process.env.JWT_KEY)
+        // console.log(process.env.JWT_KEY)
         let token = jwt.sign({id: data.id}, process.env.JWT_KEY)
-        console.log(token)
+        // console.log(token)
         res.cookie('token', token, {httpOnly:true})
         res.send({id: data.id, email: data.email, firstName: data.first_name, lastName: data.last_name})
       }else{
