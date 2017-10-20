@@ -21,20 +21,21 @@ $(document).ready(() => {
       type: 'POST',
       url: '/token'
     }
+    console.log(options)
 
 
     $.ajax(options)
       .done((data) => {
-
+        console.log(data)
         console.log('success in index')
         window.location.href = '/map'
       })
       .fail(($xhr) => {
+        console.log(data)
         console.log('this is response text for failure '+$xhr.responseText)
         window.location.href = '/'
       })
 
-      console.log('options = ' + options)
 
 
     console.log(email)
