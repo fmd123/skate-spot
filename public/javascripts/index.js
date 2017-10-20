@@ -31,7 +31,6 @@ $(document).ready(() => {
         window.location.href = '/map'
       })
       .fail(($xhr) => {
-        console.log(data)
         console.log('this is response text for failure '+$xhr.responseText)
         window.location.href = '/'
       })
